@@ -84,7 +84,8 @@ router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password cannot be blank ').exists()
 ], async (req, res) => {
-
+    
+     let success=false;
     //If there are errors return bad request
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -96,13 +97,15 @@ router.post('/login', [
     try {
         let user = await User.findOne({ email });
         if (!user) {
+            success=false;
             return res.status(400).json({ error: "Please login with correct credentials" });
 
         }
 
         const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
-            return res.status(400).json({ error: "Please login with correct credentials" });
+            success=false;
+            return res.status(400).json({ success , error: "Please login with correct credentials" });
         }
 
 
@@ -114,8 +117,9 @@ router.post('/login', [
         }
         //With the JWT_SECRET we can identify if anybody wants top tamper with the data
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({ authToken });
-        console.log(authToken);
+        success=true;
+        res.json({ success, authToken });
+        // console.log(authToken);
 
     } catch (error) {
         console.error(error.message);
