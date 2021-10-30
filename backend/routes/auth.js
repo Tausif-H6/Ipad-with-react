@@ -17,6 +17,7 @@ router.post('/createuser', [
     body('password', 'Password must be 5 charecters').isLength({ min: 5 }),
 
 ], async (req, res) => {
+    let success=false;
     console.log(req.body);
     // res.send(req.body);
     // const user = User(req.body);
@@ -25,7 +26,7 @@ router.post('/createuser', [
     //If there are errors return bad request
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ success,errors: errors.array() });
     }
 
     //Check whether the user with this email exists already
@@ -36,7 +37,7 @@ router.post('/createuser', [
         let user = await User.findOne({ email: req.body.email });
 
         if (user) {
-            return res.status(400).json({ error: "Sorry with this email user already exists" })
+            return res.status(400).json({ success,error: "Sorry with this email user already exists" })
         }
 
 
@@ -68,7 +69,8 @@ router.post('/createuser', [
         console.log(authToken);
 
         //Sending auth token instead of user
-        res.json({ authToken });
+        success=true;
+        res.json({ success,authToken });
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
