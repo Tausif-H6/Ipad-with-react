@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router-dom'
 
-const Singup = () => {
+const Singup = (props) => {
     const [credentials, setcredentials] = useState({ email: "", password: "", name:"",cpassword:"" })
     let history = useHistory();
 
@@ -30,8 +30,9 @@ const Singup = () => {
             //Save the auth-token and redirect
             localStorage.setItem('token',json.authtoken);
              history.push("/");
+             props.showAlert("Account created Successfully", "success")
         }else{
-            alert("Wrong credentials");
+            props.showAlert("Invalid Credentials", "danger")
         }
 
     }
