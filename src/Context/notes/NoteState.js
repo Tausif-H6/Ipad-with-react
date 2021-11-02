@@ -19,7 +19,8 @@ const getNotes = async () => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-       'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
+       'auth-token':localStorage.getItem('token')
+       //'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
 
     },
     
@@ -59,7 +60,8 @@ const getNotes = async () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-         'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
+         'auth-token':localStorage.getItem('token')
+         //'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
 
       },
       body: JSON.stringify({title,description,tag})
@@ -84,7 +86,8 @@ const getNotes = async () => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-         'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
+         'auth-token':localStorage.getItem('token')
+         //'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
 
       },
       
@@ -118,7 +121,8 @@ const getNotes = async () => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-         'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
+         'auth-token':localStorage.getItem('token')
+         //'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ODUxMjg1MzIwNmUwMzNhNDkxOTAxIn0sImlhdCI6MTYzNDIyNjQ5Mn0.dC4m-m79UqUcCOGgHNcw2g1iT7oPt0goCInlWAQfrl8'
 
       },
       body: JSON.stringify({title,description,tag})

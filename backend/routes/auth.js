@@ -32,7 +32,7 @@ router.post('/createuser', [
     //Check whether the user with this email exists already
 
     try {
-
+        let success = false;
 
         let user = await User.findOne({ email: req.body.email });
 
