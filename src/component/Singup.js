@@ -15,7 +15,7 @@ const Singup = (props) => {
 
         e.preventDefault();
        const {name,email,password}=credentials;
-        const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+        const response = await fetch("http://localhost:5000/api/auth/createuser", {
              
         method: 'POST',
             headers: {
@@ -28,7 +28,7 @@ const Singup = (props) => {
         console.log(json);
         if(json.success){
             //Save the auth-token and redirect
-            localStorage.setItem('token',json.authtoken);
+            localStorage.setItem('token',json.authToken);
              history.push("/");
              props.showAlert("Account created Successfully", "success")
         }else{
